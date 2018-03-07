@@ -19,7 +19,7 @@ const PptxGenJS = require('pptxgenjs');
 const path = require('path');
 const p = require(path.resolve(configFile));
 
-const REMOVE_HYPHENS_REGEX = /-([^\s])/g
+const REMOVE_HYPHENS_REGEX = /-([^\s|^०|^१|^२|^३|^४|^५|^६|^७|^८|^९|^\d])/g
 
 
 var gConsoleLog = true;
