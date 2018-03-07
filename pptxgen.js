@@ -57,6 +57,7 @@ var romText = fs.readFileSync(romanFile).toString().split("\n");
 var slide_row = 0;
 var slide_num = 0;
 var slide;
+var blank_line_count = 0;
 
 for(i in devText) {
 	
@@ -75,16 +76,14 @@ for(i in devText) {
 		.trim()
 	
 	if (!sanskrit_text) {
+		blank_line_count += 1;
 		continue;
 	}
 	
 	// force page break
-	if (sanskrit_text === p.NEW_SLIDE_COMMENT) {
-		slide_row = p.MAX_ROWS_PER_SLIDE;
-		continue;
-	}
+	var forceNewPage = blank_line_count >= p.NEW_SLIDE_BLANK_LINE_COUNT;
 	
-	if (slide_row % p.MAX_ROWS_PER_SLIDE == 0) {
+	if (forceNewPage || slide_row % p.MAX_ROWS_PER_SLIDE == 0) {
 			slide = pptx.addNewSlide();
 			slide.back = p.SLIDE_BACKGROUND_COLOR;
 			slide.color = p.FONT_COLOR;
@@ -93,6 +92,8 @@ for(i in devText) {
             slide_row = 0;
 	}
 	
+	// writing text
+	blank_line_count = 0;
 	var y_pos_dev = slide_row * p.TEXTBOX1_SPACING + p.TEXTBOX1_Y_OFFSET;
 	var y_pos_rom = slide_row * p.TEXTBOX2_SPACING + p.TEXTBOX2_Y_OFFSET;
 	
