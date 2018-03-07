@@ -97,10 +97,10 @@ for(i in devText) {
 	var y_pos_rom = slide_row * p.TEXTBOX2_SPACING + p.TEXTBOX2_Y_OFFSET;
 	
 	slide.addText( sanskrit_text, {
-		x: p.TEXTBOX_X_OFFSET, 
+		x: p.TEXTBOX1_X_OFFSET, 
 		y: isTitle ? p.TEXTBOX_TITLE1_Y_POS : `${y_pos_dev}%`, 
-		w: p.TEXTBOX_WIDTH, 
-		h: p.TEXTBOX_HEIGHT, 
+		w: p.TEXTBOX1_WIDTH, 
+		h: p.TEXTBOX1_HEIGHT, 
 		fontFace: p.TEXTBOX1_FONT, 
 		fontSize: isTitle ? p.TEXTBOX1_FONT_SIZE * p.TITLE_FONT_MULTIPLER : p.TEXTBOX1_FONT_SIZE,
 		align: isTitle ? 'center' : 'left',
@@ -108,10 +108,10 @@ for(i in devText) {
 	} );
 	
 	slide.addText( roman_text, {
-		x: p.TEXTBOX_X_OFFSET, 
+		x: p.TEXTBOX2_X_OFFSET, 
 		y: isTitle ? p.TEXTBOX_TITLE2_Y_POS : `${y_pos_rom}%`, 
-		w: p.TEXTBOX_WIDTH, 
-		h: p.TEXTBOX_HEIGHT, 
+		w: p.TEXTBOX2_WIDTH, 
+		h: p.TEXTBOX2_HEIGHT, 
 		fontFace: p.TEXTBOX2_FONT, 
 		fontSize: isTitle ? p.TEXTBOX2_FONT_SIZE * p.TITLE_FONT_MULTIPLER : p.TEXTBOX2_FONT_SIZE, 
 		align: isTitle ? 'center' : 'left',
