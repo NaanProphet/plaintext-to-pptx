@@ -19,6 +19,7 @@ const PptxGenJS = require('pptxgenjs');
 const path = require('path');
 const p = require(path.resolve(configFile));
 
+// do not remove hyphens next to numerals (arabic or indian)
 const REMOVE_HYPHENS_REGEX = /-([^\s|^०|^१|^२|^३|^४|^५|^६|^७|^८|^९|^\d])/g
 
 
